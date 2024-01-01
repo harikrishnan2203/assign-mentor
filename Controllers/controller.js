@@ -177,13 +177,12 @@ const assignMentor = async (req, res) => {
     }   
 }
 
-
 // API End point for Change Mentor
 
 const changeMentor = async (req, res) => {
     try {
       const { studentId, newMentorId } = req.params;
-      console.log(studentId, newMentorId);
+    //   console.log(studentId, newMentorId);
   
       const studentExists = await Student.findById(studentId);
       if (!studentExists) {
@@ -193,14 +192,13 @@ const changeMentor = async (req, res) => {
       }
 
       if (newMentorId.toString() === studentExists.currentMentor.toString()) {
-        console.log(true) // Debuging
+        console.log(true) // Debugging
         return res.status(400).json({
           message:
             "The selected mentor is already the student's current mentor.",
         });
       }
 
-  
       const mentorExists = await Mentor.findById(newMentorId);
       if (!mentorExists) {
         return res.status(404).json({
