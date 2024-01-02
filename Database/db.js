@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 const connectToDatabase = async () => {
     try {
-        const username = "harikrishnan2285";
-        const password = "Harikrishnan";
-        const clusterUrl = "student-mentor.oi3pggv.mongodb.net";
-        const databaseName = "Student-Mentor"; // Replace with your actual database name
+        const username = process.env.DB_USERNAME;
+        const password = process.env.DB_PASSWORD;
+        const clusterUrl = process.env.DB_CLUSTER_URL;
+        const databaseName = process.env.DB_NAME;
 
         const uri = `mongodb+srv://${encodeURIComponent(username)}:${encodeURIComponent(password)}@${clusterUrl}/${databaseName}?retryWrites=true&w=majority`;
 
