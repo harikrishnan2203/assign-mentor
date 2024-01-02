@@ -265,7 +265,8 @@ const changeMentor = async (req, res) => {
 
         res.status(200).json({
             message : "All students in a particular Mentor",
-            Name : mentorExists.Name,
+            Mentor_Name : mentorExists.Name,
+            Students_Count: mentorExists.Students.length,
             Students : mentorExists.Students
         })
     } catch (error) {
@@ -292,7 +293,8 @@ const getAllPreMentor = async (req, res) => {
 
         res.status(200).json({
             message: "Successfully fetched Previous Mentors in Particular Student",
-            Name : studentExists.Name,
+            Student_Name : studentExists.Name,
+            PreMentors_Count: studentExists.previousMentors.length,
             PreviousMentors : studentExists.previousMentors
         })
     } catch (error) {
