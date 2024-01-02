@@ -2,7 +2,7 @@ const express = require("express")
 const router = express.Router()
 const controller =require("../Controllers/controller")
 
-router.post('/students/create', controller.createStudent)
+router.post('/student/create', controller.createStudent)
 router.get('/students/all', controller.getAllStudents)
 router.post('/mentor/create', controller.createMentor)
 router.get('/mentors/all', controller.getAllMentor)
